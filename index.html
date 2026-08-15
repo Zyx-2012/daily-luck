@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f7fb">
+  <title>今日人品 · PCL2 / PCLCE 预测工具</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="今日人品首页">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>
+          <strong>今日人品</strong>
+          <small>PCL2 / PCLCE · stable forecast</small>
+        </span>
+      </a>
+      <div class="topbar-meta">
+        <span class="status-dot"></span>
+        <span>本地计算</span>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换深色模式" title="切换深色模式">
+          <span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true">☾</span>
+          <span class="theme-toggle-label" id="theme-toggle-label">深色</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="hero-band" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">DAILY LUCK INDEX <span></span></p>
+          <h1 id="page-title">今天，手气如何？</h1>
+          <p class="hero-description">分别按 PCL2 与 PCLCE 的原始规则，查看今天和未来几天的两套人品值。</p>
+          <div class="date-pill">
+            <span class="calendar-symbol" aria-hidden="true">▦</span>
+            <span id="hero-date">正在计算</span>
+          </div>
+        </div>
+
+        <div class="score-panel" aria-live="polite">
+          <div class="score-panel-heading">
+            <span id="score-date-label">PCL2 今日人品</span>
+            <span class="score-status" id="score-status">计算中</span>
+          </div>
+          <div class="score-row">
+            <div class="score-ring" id="score-ring" style="--score-angle: 0deg">
+              <div class="score-ring-inner">
+                <strong id="today-score">--</strong>
+                <span>/ 100</span>
+              </div>
+            </div>
+            <div class="score-message">
+              <strong id="score-message-title">正在读取</strong>
+              <p id="score-message">输入设备标识后即可得到稳定结果。</p>
+            </div>
+          </div>
+          <div class="score-scale" aria-hidden="true">
+            <span>低</span><i><b id="score-scale-fill"></b></i><span>高</span>
+          </div>
+          <div class="engine-compare">
+            <span>PCLCE 今日人品</span>
+            <strong id="pclce-today-score">--</strong><small>/ 100</small>
+            <span class="score-status" id="pclce-score-status">计算中</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="control-strip" aria-label="预测设置">
+        <div class="control-field date-field">
+          <label for="start-date">起始日期</label>
+          <input id="start-date" type="date">
+        </div>
+        <div class="control-field range-field">
+          <label for="days-count">预测天数</label>
+          <select id="days-count">
+            <option value="7">未来 7 天</option>
+            <option value="14">未来 14 天</option>
+            <option value="30" selected>未来 30 天</option>
+            <option value="60">未来 60 天</option>
+          </select>
+        </div>
+        <div class="control-field identifier-field">
+          <div class="field-label">
+            <label for="identifier">PCL2 设备标识</label>
+            <span class="identifier-status" id="identifier-status">自动读取中</span>
+          </div>
+          <input id="identifier" type="text" spellcheck="false" autocomplete="off" placeholder="输入固定标识">
+        </div>
+        <div class="control-field pclce-identifier-field">
+          <div class="field-label">
+            <label for="pclce-identifier">PCLCE 设备标识</label>
+            <span class="identifier-status" id="pclce-identifier-status">自动读取中</span>
+          </div>
+          <input id="pclce-identifier" type="text" spellcheck="false" autocomplete="off" placeholder="输入固定标识">
+        </div>
+        <button class="button button-quiet" id="reset-button" type="button" title="恢复今天与默认标识">
+          <span aria-hidden="true">⌁</span> 重置
+        </button>
+        <button class="button button-primary" id="calculate-button" type="button">
+          <span aria-hidden="true">↻</span> 更新预测
+        </button>
+      </section>
+
+      <section class="insight-grid" aria-label="预测摘要">
+        <article class="insight-panel insight-accent-blue">
+          <div class="insight-topline"><span>PCL2 下一个满分日</span><span class="insight-icon" aria-hidden="true">✦</span></div>
+          <strong id="pcl2-next-perfect-date">搜索中</strong>
+          <p id="pcl2-next-perfect-countdown">正在查找未来的 100 人品</p>
+        </article>
+        <article class="insight-panel insight-accent-orange">
+          <div class="insight-topline"><span>PCLCE 下一个满分日</span><span class="insight-icon" aria-hidden="true">✦</span></div>
+          <strong id="pclce-next-perfect-date">搜索中</strong>
+          <p id="pclce-next-perfect-countdown">正在查找未来的 100 人品</p>
+        </article>
+        <article class="insight-panel insight-accent-blue">
+          <div class="insight-topline"><span>PCL2 窗口最高值</span><span class="insight-icon" aria-hidden="true">↗</span></div>
+          <strong><span id="pcl2-window-high-score">--</span><small> / 100</small></strong>
+          <p id="pcl2-window-high-date">等待预测窗口</p>
+        </article>
+        <article class="insight-panel insight-accent-teal">
+          <div class="insight-topline"><span>PCLCE 窗口最高值</span><span class="insight-icon" aria-hidden="true">↗</span></div>
+          <strong><span id="pclce-window-high-score">--</span><small> / 100</small></strong>
+          <p id="pclce-window-high-date">等待预测窗口</p>
+        </article>
+      </section>
+
+      <section class="data-section" aria-labelledby="forecast-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow eyebrow-muted">FORECAST TABLE</p>
+            <h2 id="forecast-title">未来人品走势</h2>
+          </div>
+          <div class="legend" aria-label="人品值颜色说明">
+            <span><i class="legend-dot dot-good"></i>高于 65</span>
+            <span><i class="legend-dot dot-even"></i>50–65</span>
+            <span><i class="legend-dot dot-low"></i>低于 50</span>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">日期</th>
+                <th scope="col">星期</th>
+                <th scope="col" class="score-col">PCL2</th>
+                <th scope="col" class="score-col">PCLCE</th>
+                <th scope="col" class="trend-col">PCL2 指数</th>
+                <th scope="col" class="trend-col">PCLCE 指数</th>
+                <th scope="col" class="note-col">PCL2 状态</th>
+              </tr>
+            </thead>
+            <tbody id="forecast-body"></tbody>
+          </table>
+        </div>
+        <div class="empty-state" id="empty-state" hidden>还没有预测数据。</div>
+      </section>
+
+      <section class="perfect-section" aria-labelledby="perfect-title">
+        <div class="perfect-copy">
+          <p class="eyebrow eyebrow-muted">PERFECT DAYS</p>
+          <h2 id="perfect-title">100 人品日历</h2>
+          <p>两套算法分别列出接下来最早的满分日期，表格会高亮任意一套达到 100 的日期。</p>
+        </div>
+        <div class="perfect-engine-grid">
+          <div class="perfect-engine">
+            <div class="perfect-engine-heading"><strong>PCL2</strong><span><b id="pcl2-perfect-count">0</b> 个日期</span></div>
+            <p class="perfect-engine-range" id="pcl2-window-range">未来 30 天</p>
+            <div class="perfect-list" id="pcl2-perfect-list"></div>
+          </div>
+          <div class="perfect-engine">
+            <div class="perfect-engine-heading"><strong>PCLCE</strong><span><b id="pclce-perfect-count">0</b> 个日期</span></div>
+            <p class="perfect-engine-range" id="pclce-window-range">未来 30 天</p>
+            <div class="perfect-list" id="pclce-perfect-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="method-section" aria-labelledby="method-title">
+        <div class="method-heading">
+          <div>
+            <p class="eyebrow eyebrow-muted">METHOD</p>
+            <h2 id="method-title">计算原理</h2>
+          </div>
+          <span class="method-badge">PCL2 + PCLCE</span>
+        </div>
+        <p class="method-intro">PCL2 和 PCLCE 使用不同的设备识别码与随机过程，因此同一天出现不同人品值是正常的。网页分别复刻两套实现。</p>
+        <div class="formula-box">
+          <code>PCL2：StableHash("asdfgbn" + 日序 + "12#3$45" + 年 + "IUY") + StableHash("QWERTY" + Identify + "0*8&6" + 日 + "kjhg")<br>PCLCE：seed = DJB2Hash(yyyyMMdd + LauncherId)，人品值 = .NET Random(seed).Next(0, 101)</code>
+        </div>
+        <p class="method-footnote">两套设备标识仅用于本地计算，不会上传。PCLCE 识别码由本机 WMI 硬件信息生成。</p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span>今日人品 · deterministic daily index</span>
+      <span>算法结果仅供娱乐</span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
