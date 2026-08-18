@@ -2,6 +2,8 @@
 
 这是一个同时复刻 PCL2 与 PCLCE 今日人品算法的网页版工具。网页本身仍然是纯前端；使用 `server.py` 启动时，还会在本机读取两套算法所需的识别信息。
 
+Rust 桌面版位于 [`rust` 分支](../../tree/rust)，包含相同的 PCL2 / PCLCE 算法以及 Windows 识别信息自动读取功能。
+
 ```powershell
 python server.py
 ```
