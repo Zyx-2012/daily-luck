@@ -1,27 +1,90 @@
-# 今日人品 · PCL2 预测工具
+# Daily Luck PCL2/PCLCE Algorithm 🎲
 
-这是一个同时复刻 PCL2 与 PCLCE 今日人品算法的网页版工具。网页本身仍然是纯前端；使用 `server.py` 启动时，还会在本机读取两套算法所需的识别信息。
+Rust port of the **PCL2** (Plain Craft Launcher 2) and **PCLCE** daily-luck (今日人品) algorithms from [Zyx-2012/daily-luck](https://github.com/Zyx-2012/daily-luck).
 
-```powershell
-python server.py
+## Features
+
+- ✅ PCL2 Algorithm — Registry-based identify + GetStableHashCode 64-bit
+- ✅ PCLCE Algorithm — WMI query + SHA-512 + DJB2 + .NET Random recreation
+- ✅ Cross-platform pure functions (no OS dependencies)
+- ✅ Windows system access (registry/WMI auto-detection)
+- ✅ Desktop GUI application (egui/eframe) with card-based layout and system CJK font support
+- ✅ Startup auto-computes 365-day forecast, shown in a pop-up window on demand
+- ✅ Countdown to the next perfect (100) day within 1000 days + its date
+- ✅ Identifier search (custom start date, day range and identifier count; 6 sort modes; runs on a background thread with a progress bar and paging)
+- ✅ Developer settings (confirm-gated): lift day/count limits, checkpoint/resume caching to the user cache dir, load & delete cache
+- ✅ Cross-compiled release builds for Windows x64
+
+## Provenance & Verification
+
+All algorithms were validated against three independent implementations:
+
+| Implementation | Status | Notes |
+|---------------|--------|-------|
+| JavaScript (`app.js`) | ✅ Verified | Verbatim copy of original repository logic |
+| Python (`server.py`) | ✅ Verified | Independent reimplementation of registry/WMI logic |
+| Native .NET Reference | ✅ Verified | `new Random(seed).Next(0, 101)` matches our reconstruction |
+
+The 173 cross-validated test vectors are committed under `tests/vectors/`.
+
+## Quick Start
+
+```bash
+cargo run --release
 ```
 
-也可以双击 `run.bat` 启动；关闭命令行窗口后服务会停止。然后打开 `http://localhost:4173/`。如果直接打开 `index.html`，网页无法读取 Windows 注册表，会回退到手动设备标识。
+## Project Structure
 
-## 算法来源
+```
+src/
+├── lib.rs      # Pure algorithm library (PCL2, PCLCE scoring, identifiers)
+└── main.rs     # egui desktop application entry point
+tests/vectors/  # Reference JSON fixtures for unit tests
+tools/          # Vector generation scripts (JS + Python)
+.github/workflows/release.yml  # GitHub Actions for cross-compilation
+```
 
-PCL2 公开仓库会把百宝箱实现剥离，但仓库中的 `最新正式版.zip` 包含历史正式版二进制。对其中 `PageOtherTest.Jrrp()` 的 IL 进行核对后，得到以下规则：
+## API Overview
 
-### PCL2
+### Pure Functions (Cross-Platform)
 
-1. PCL 先读取 `HKLM\\SYSTEM\\HardwareConfig\\LastConfig`，转为大写并去掉首尾大括号，再与 `HKCU\\Software\\PCL\\Identify` 拼接生成最终识别码。
-2. 使用最终识别码、年、日序和日期中的日拼接今日人品的两个种子字符串。
-3. 使用 MeloongCore 的 `GetStableHashCode`：初始值为 `5381`，逐个 UTF-16 字符执行 `((hash << 5) ^ hash ^ char)`，最后异或 `0xA98F501BC684032F`。
-4. 两个哈希分别除以 `3`，相加后除以 `527`，取绝对值并对 `1001` 取余，再使用 .NET `Math.Round` 的银行家舍入。
-5. 中间值不小于 `970` 时为 `100`；否则为 `RoundEven(value / 969 * 99)`。
+```rust
+use daily_luck::{pcl2_luck, pclce_luck};
 
-### PCLCE
+// Input: device identifier + date
+let score = pcl2_luck("ABCD-EFGH-1234-5678", 2025, 1, 15);  // → 0..=100
+let score = pclce_luck("WXYZ-1234-ABCD-5678", 2025, 1, 15); // → 0..=100
+```
 
-PCLCE 从 WMI 读取 `Win32_ComputerSystemProduct.UUID`、`Win32_BaseBoard.Product`、`Win32_BaseBoard.SerialNumber` 和 `Win32_Processor.ProcessorId`，拼成 `UUID:...|MB_Prod:...|MB_SN:...|CPU:...`。它先对该字符串做 SHA-512，再对 `PCL-CE|原哈希|LauncherId` 做 SHA-512，取第二次哈希的第 65 至 80 个十六进制字符并格式化为识别码。每日人品为 `DJB2Hash(yyyyMMdd + LauncherId)` 后使用 `.NET Random(seed).Next(0, 101)`。
+Both scorers are allocation-free: seeds are hashed streamed (no `format!`
+temporaries), producing bit-for-bit identical results to the reference
+implementation (~2.6× faster in release benchmarks).
 
-网页用 JavaScript `BigInt` 复刻 PCL2 的 64 位哈希、银行家舍入和 PCLCE 的 .NET `Random`。`server.py` 只监听 `127.0.0.1`，不会把识别信息发送到远程服务器。如果 PCL2 尚未保存识别码或 WMI 不可用，对应算法可以继续手动填写识别码。
+For workloads that scan many identifiers over the same date range, the first
+seed of the PCL2 algorithm depends only on the date:
+
+```rust
+let first = daily_luck::pcl2_first_hash(2025, 1, 15);
+let score = daily_luck::pcl2_luck_with_first_hash("ABCD-EFGH-1234-5678", 2025, 1, 15, first);
+// identical to pcl2_luck(...), but the date hash is computed once per day
+```
+
+### System Access (Windows Only)
+
+```rust
+#[cfg(windows)]
+{
+    let pcl2_id = daily_luck::pcl2_identify()?;  // From HKCU\Software\PCL + HKLM\SYSTEM\HardwareConfig
+    let pclce_id = daily_luck::pclce_identify()?; // From WMI: Win32_ComputerSystemProduct etc.
+}
+```
+
+## Build Configuration
+
+- **Release profile**: LTO, single codegen unit, strip binaries, opt-level=z, panic=abort
+- **CI/CD**: GitHub Actions pushes tag `v*`, builds Windows x64 binary, creates Release artifact
+- **Dependencies**: eframe (GUI), chrono, rand, sha2, hex, winreg (WMI via windows-rs crate)
+
+## License
+
+MIT

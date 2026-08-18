@@ -1,0 +1,59 @@
+name: Release Build
+
+on:
+  push:
+    tags:
+      - 'v*'
+      - '*Release*'
+  workflow_dispatch:
+
+# 若要在构建后自动发布 GitHub Release，仓库需在
+# Settings → Actions → General → Workflow permissions 中开启
+# “Read and write permissions”。开启后 GITHUB_TOKEN 才有权限创建
+# Release；未开启时该步骤会被跳过（构建仍成功，产物在 Actions Artifacts 中）。
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-msvc
+
+      - name: Cache cargo registry & build
+        uses: swatinem/rust-cache@v2
+
+      - name: Build release
+        run: cargo build --release
+
+      - name: Upload build artifact (.exe)
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-luck-windows-x64-exe
+          path: target/release/daily-luck.exe
+          retention-days: 30
+
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v2
+        continue-on-error: true # 权限未开启时跳过，不影响构建结果
+        with:
+          files: target/release/daily-luck.exe
+          draft: false
+          prerelease: false
+          body: |
+            # Daily Luck — PCL2 / PCLCE Algorithm
+
+            - PCL2 算法（基于注册表读取和 GetStableHashCode 64 位）
+            - PCLCE 算法（基于 WMI 查询、SHA-512、DJB2、.NET Random）
+            - egui GUI 桌面应用 | Windows x64 | LTO + strip + opt-level=z
+            - 开发者设置：可解除天数/识别码数量上限
+            - 断点续搜：结果缓存到用户缓存目录
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
