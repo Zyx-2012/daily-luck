@@ -1,0 +1,958 @@
+{
+  "stableHash": [
+    {
+      "s": "",
+      "hex": "0xA98F501BC684162A",
+      "dec": "12218072394304329258",
+      "f64": 1.221807239430433e+19
+    },
+    {
+      "s": "a",
+      "hex": "0xA98F501BC686B6EB",
+      "dec": "12218072394304501483",
+      "f64": 1.2218072394304502e+19
+    },
+    {
+      "s": "hello world",
+      "hex": "0x7C02377B91107FEA",
+      "dec": "8935765614510768106",
+      "f64": 8.935765614510768e+18
+    },
+    {
+      "s": "asdfgbn112#3$452024IUY",
+      "hex": "0x4E380B95A424D5D7",
+      "dec": "5636267670986085847",
+      "f64": 5.636267670986085e+18
+    },
+    {
+      "s": "QWERTYABCD-EFGH-1234-56780*8&66kjhg",
+      "hex": "0xE04A49C341252B31",
+      "dec": "16161811315732851505",
+      "f64": 1.616181131573285e+19
+    },
+    {
+      "s": "PCL",
+      "hex": "0xA98F501BCC516AB5",
+      "dec": "12218072394401671861",
+      "f64": 1.2218072394401671e+19
+    },
+    {
+      "s": "{D0FCA2E4-6C10-4D7A-9C5B-123456789ABC}",
+      "hex": "0xF9DCC4BDD795D711",
+      "dec": "18004481729965184785",
+      "f64": 1.8004481729965185e+19
+    },
+    {
+      "s": "{abcdefgh-1234-5678-90ab-cdef12345678}",
+      "hex": "0x10874E9D5E30B78A",
+      "dec": "1191007064259868554",
+      "f64": 1.1910070642598687e+18
+    },
+    {
+      "s": "\u4e2d\u6587\u6807\u8bc6\u6d4b\u8bd5",
+      "hex": "0xA98F55C501A5C4FF",
+      "dec": "12218078618704004351",
+      "f64": 1.2218078618704005e+19
+    },
+    {
+      "s": "\ud834\udd1emusic\ud83c\udfb5",
+      "hex": "0xABE41F006A187788",
+      "dec": "12386058961816156040",
+      "f64": 1.2386058961816156e+19
+    },
+    {
+      "s": "PCL-CE|aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|LauncherId",
+      "hex": "0xC00CFBCD73B1BCF9",
+      "dec": "13838712614830587129",
+      "f64": 1.3838712614830588e+19
+    },
+    {
+      "s": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "hex": "0xC59A56DA96E8162A",
+      "dec": "14238788668719896106",
+      "f64": 1.4238788668719897e+19
+    }
+  ],
+  "djb2": [
+    {
+      "s": "",
+      "v": 5381
+    },
+    {
+      "s": "20240101",
+      "v": 132404431
+    },
+    {
+      "s": "20240101WEB-123456",
+      "v": 576562831
+    },
+    {
+      "s": "20240229ABCD-EFGH-1234-5678",
+      "v": 1056877513
+    },
+    {
+      "s": "PCLCE-test",
+      "v": 1660518681
+    },
+    {
+      "s": "\ud83c\udc04\ud83c\udc04",
+      "v": 1991538437
+    }
+  ],
+  "random101": [
+    {
+      "seed": 0,
+      "v": 73
+    },
+    {
+      "seed": 1,
+      "v": 25
+    },
+    {
+      "seed": 2,
+      "v": 77
+    },
+    {
+      "seed": 42,
+      "v": 67
+    },
+    {
+      "seed": 5381,
+      "v": 90
+    },
+    {
+      "seed": 55555,
+      "v": 6
+    },
+    {
+      "seed": 123456789,
+      "v": 51
+    },
+    {
+      "seed": 987654321,
+      "v": 69
+    },
+    {
+      "seed": 2147483647,
+      "v": 73
+    },
+    {
+      "seed": 20240101,
+      "v": 85
+    },
+    {
+      "seed": 999999999,
+      "v": 39
+    },
+    {
+      "seed": 1190023354,
+      "v": 33
+    }
+  ],
+  "roundEven": [
+    {
+      "v": 0.5,
+      "r": 0
+    },
+    {
+      "v": 1.5,
+      "r": 2
+    },
+    {
+      "v": 2.5,
+      "r": 2
+    },
+    {
+      "v": 3.5,
+      "r": 4
+    },
+    {
+      "v": 4.5,
+      "r": 4
+    },
+    {
+      "v": 0.0,
+      "r": 0
+    },
+    {
+      "v": 1.0,
+      "r": 1
+    },
+    {
+      "v": 0.4999999,
+      "r": 0
+    },
+    {
+      "v": 0.5000001,
+      "r": 1
+    },
+    {
+      "v": 1000.5,
+      "r": 1000
+    },
+    {
+      "v": 969.5,
+      "r": 970
+    },
+    {
+      "v": 42.7,
+      "r": 43
+    },
+    {
+      "v": 969.0,
+      "r": 969
+    },
+    {
+      "v": 1000.9999,
+      "r": 1001
+    },
+    {
+      "v": 970.0,
+      "r": 970
+    }
+  ],
+  "pcl2": [
+    {
+      "identifier": "",
+      "date": "2024-01-01",
+      "score": 95
+    },
+    {
+      "identifier": "",
+      "date": "2024-02-29",
+      "score": 100
+    },
+    {
+      "identifier": "",
+      "date": "2024-12-31",
+      "score": 31
+    },
+    {
+      "identifier": "",
+      "date": "2025-01-01",
+      "score": 93
+    },
+    {
+      "identifier": "",
+      "date": "2000-02-29",
+      "score": 40
+    },
+    {
+      "identifier": "",
+      "date": "2023-06-15",
+      "score": 69
+    },
+    {
+      "identifier": "",
+      "date": "2100-02-28",
+      "score": 73
+    },
+    {
+      "identifier": "",
+      "date": "1999-07-07",
+      "score": 95
+    },
+    {
+      "identifier": "WEB",
+      "date": "2024-01-01",
+      "score": 64
+    },
+    {
+      "identifier": "WEB",
+      "date": "2024-02-29",
+      "score": 21
+    },
+    {
+      "identifier": "WEB",
+      "date": "2024-12-31",
+      "score": 93
+    },
+    {
+      "identifier": "WEB",
+      "date": "2025-01-01",
+      "score": 61
+    },
+    {
+      "identifier": "WEB",
+      "date": "2000-02-29",
+      "score": 62
+    },
+    {
+      "identifier": "WEB",
+      "date": "2023-06-15",
+      "score": 40
+    },
+    {
+      "identifier": "WEB",
+      "date": "2100-02-28",
+      "score": 95
+    },
+    {
+      "identifier": "WEB",
+      "date": "1999-07-07",
+      "score": 33
+    },
+    {
+      "identifier": "WEB-123456",
+      "date": "2024-01-01",
+      "score": 64
+    },
+    {
+      "identifier": "WEB-123456",
+      "date": "2024-02-29",
+      "score": 95
+    },
+    {
+      "identifier": "WEB-123456",
+      "date": "2024-12-31",
+      "score": 16
+    },
+    {
+      "identifier": "WEB-123456",
+      "date": "2025-01-01",
+      "score": 62
+    },
+    {
+      "identifier": "WEB-123456",
+      "date": "2000-02-29",
+      "score": 34
+    },
+    {
+      "identifier": "WEB-123456",
+      "date": "2023-06-15",
+      "score": 55
+    },
+    {
+      "identifier": "WEB-123456",
+      "date": "2100-02-28",
+      "score": 100
+    },
+    {
+      "identifier": "WEB-123456",
+      "date": "1999-07-07",
+      "score": 29
+    },
+    {
+      "identifier": "ABCD-EFGH-1234-5678",
+      "date": "2024-01-01",
+      "score": 62
+    },
+    {
+      "identifier": "ABCD-EFGH-1234-5678",
+      "date": "2024-02-29",
+      "score": 53
+    },
+    {
+      "identifier": "ABCD-EFGH-1234-5678",
+      "date": "2024-12-31",
+      "score": 15
+    },
+    {
+      "identifier": "ABCD-EFGH-1234-5678",
+      "date": "2025-01-01",
+      "score": 60
+    },
+    {
+      "identifier": "ABCD-EFGH-1234-5678",
+      "date": "2000-02-29",
+      "score": 94
+    },
+    {
+      "identifier": "ABCD-EFGH-1234-5678",
+      "date": "2023-06-15",
+      "score": 70
+    },
+    {
+      "identifier": "ABCD-EFGH-1234-5678",
+      "date": "2100-02-28",
+      "score": 58
+    },
+    {
+      "identifier": "ABCD-EFGH-1234-5678",
+      "date": "1999-07-07",
+      "score": 98
+    },
+    {
+      "identifier": "cafe-babe-dead-beef",
+      "date": "2024-01-01",
+      "score": 3
+    },
+    {
+      "identifier": "cafe-babe-dead-beef",
+      "date": "2024-02-29",
+      "score": 5
+    },
+    {
+      "identifier": "cafe-babe-dead-beef",
+      "date": "2024-12-31",
+      "score": 8
+    },
+    {
+      "identifier": "cafe-babe-dead-beef",
+      "date": "2025-01-01",
+      "score": 1
+    },
+    {
+      "identifier": "cafe-babe-dead-beef",
+      "date": "2000-02-29",
+      "score": 46
+    },
+    {
+      "identifier": "cafe-babe-dead-beef",
+      "date": "2023-06-15",
+      "score": 63
+    },
+    {
+      "identifier": "cafe-babe-dead-beef",
+      "date": "2100-02-28",
+      "score": 10
+    },
+    {
+      "identifier": "cafe-babe-dead-beef",
+      "date": "1999-07-07",
+      "score": 4
+    },
+    {
+      "identifier": "test",
+      "date": "2024-01-01",
+      "score": 32
+    },
+    {
+      "identifier": "test",
+      "date": "2024-02-29",
+      "score": 85
+    },
+    {
+      "identifier": "test",
+      "date": "2024-12-31",
+      "score": 14
+    },
+    {
+      "identifier": "test",
+      "date": "2025-01-01",
+      "score": 30
+    },
+    {
+      "identifier": "test",
+      "date": "2000-02-29",
+      "score": 24
+    },
+    {
+      "identifier": "test",
+      "date": "2023-06-15",
+      "score": 32
+    },
+    {
+      "identifier": "test",
+      "date": "2100-02-28",
+      "score": 57
+    },
+    {
+      "identifier": "test",
+      "date": "1999-07-07",
+      "score": 98
+    },
+    {
+      "identifier": "1234567890123456",
+      "date": "2024-01-01",
+      "score": 35
+    },
+    {
+      "identifier": "1234567890123456",
+      "date": "2024-02-29",
+      "score": 10
+    },
+    {
+      "identifier": "1234567890123456",
+      "date": "2024-12-31",
+      "score": 42
+    },
+    {
+      "identifier": "1234567890123456",
+      "date": "2025-01-01",
+      "score": 33
+    },
+    {
+      "identifier": "1234567890123456",
+      "date": "2000-02-29",
+      "score": 52
+    },
+    {
+      "identifier": "1234567890123456",
+      "date": "2023-06-15",
+      "score": 80
+    },
+    {
+      "identifier": "1234567890123456",
+      "date": "2100-02-28",
+      "score": 85
+    },
+    {
+      "identifier": "1234567890123456",
+      "date": "1999-07-07",
+      "score": 36
+    },
+    {
+      "identifier": "\u4e2d\u6587\u6807\u8bc6",
+      "date": "2024-01-01",
+      "score": 96
+    },
+    {
+      "identifier": "\u4e2d\u6587\u6807\u8bc6",
+      "date": "2024-02-29",
+      "score": 2
+    },
+    {
+      "identifier": "\u4e2d\u6587\u6807\u8bc6",
+      "date": "2024-12-31",
+      "score": 74
+    },
+    {
+      "identifier": "\u4e2d\u6587\u6807\u8bc6",
+      "date": "2025-01-01",
+      "score": 94
+    },
+    {
+      "identifier": "\u4e2d\u6587\u6807\u8bc6",
+      "date": "2000-02-29",
+      "score": 43
+    },
+    {
+      "identifier": "\u4e2d\u6587\u6807\u8bc6",
+      "date": "2023-06-15",
+      "score": 46
+    },
+    {
+      "identifier": "\u4e2d\u6587\u6807\u8bc6",
+      "date": "2100-02-28",
+      "score": 76
+    },
+    {
+      "identifier": "\u4e2d\u6587\u6807\u8bc6",
+      "date": "1999-07-07",
+      "score": 61
+    }
+  ],
+  "pclce": [
+    {
+      "identifier": "",
+      "date": "2024-01-01",
+      "score": 19
+    },
+    {
+      "identifier": "",
+      "date": "2024-02-29",
+      "score": 77
+    },
+    {
+      "identifier": "",
+      "date": "2024-12-31",
+      "score": 23
+    },
+    {
+      "identifier": "",
+      "date": "2025-01-01",
+      "score": 34
+    },
+    {
+      "identifier": "",
+      "date": "2000-02-29",
+      "score": 20
+    },
+    {
+      "identifier": "",
+      "date": "2023-06-15",
+      "score": 98
+    },
+    {
+      "identifier": "",
+      "date": "2100-02-28",
+      "score": 14
+    },
+    {
+      "identifier": "",
+      "date": "1999-07-07",
+      "score": 5
+    },
+    {
+      "identifier": "WEB",
+      "date": "2024-01-01",
+      "score": 94
+    },
+    {
+      "identifier": "WEB",
+      "date": "2024-02-29",
+      "score": 40
+    },
+    {
+      "identifier": "WEB",
+      "date": "2024-12-31",
+      "score": 31
+    },
+    {
+      "identifier": "WEB",
+      "date": "2025-01-01",
+      "score": 100
+    },
+    {
+      "identifier": "WEB",
+      "date": "2000-02-29",
+      "score": 29
+    },
+    {
+      "identifier": "WEB",
+      "date": "2023-06-15",
+      "score": 53
+    },
+    {
+      "identifier": "WEB",
+      "date": "2100-02-28",
+      "score": 58
+    },
+    {
+      "identifier": "WEB",
+      "date": "1999-07-07",
+      "score": 92
+    },
+    {
+      "identifier": "WEB-123456",
+      "date": "2024-01-01",
+      "score": 86
+    },
+    {
+      "identifier": "WEB-123456",
+      "date": "2024-02-29",
+      "score": 43
+    },
+    {
+      "identifier": "WEB-123456",
+      "date": "2024-12-31",
+      "score": 70
+    },
+    {
+      "identifier": "WEB-123456",
+      "date": "2025-01-01",
+      "score": 59
+    },
+    {
+      "identifier": "WEB-123456",
+      "date": "2000-02-29",
+      "score": 44
+    },
+    {
+      "identifier": "WEB-123456",
+      "date": "2023-06-15",
+      "score": 72
+    },
+    {
+      "identifier": "WEB-123456",
+      "date": "2100-02-28",
+      "score": 94
+    },
+    {
+      "identifier": "WEB-123456",
+      "date": "1999-07-07",
+      "score": 92
+    },
+    {
+      "identifier": "ABCD-EFGH-1234-5678",
+      "date": "2024-01-01",
+      "score": 37
+    },
+    {
+      "identifier": "ABCD-EFGH-1234-5678",
+      "date": "2024-02-29",
+      "score": 51
+    },
+    {
+      "identifier": "ABCD-EFGH-1234-5678",
+      "date": "2024-12-31",
+      "score": 100
+    },
+    {
+      "identifier": "ABCD-EFGH-1234-5678",
+      "date": "2025-01-01",
+      "score": 37
+    },
+    {
+      "identifier": "ABCD-EFGH-1234-5678",
+      "date": "2000-02-29",
+      "score": 8
+    },
+    {
+      "identifier": "ABCD-EFGH-1234-5678",
+      "date": "2023-06-15",
+      "score": 24
+    },
+    {
+      "identifier": "ABCD-EFGH-1234-5678",
+      "date": "2100-02-28",
+      "score": 100
+    },
+    {
+      "identifier": "ABCD-EFGH-1234-5678",
+      "date": "1999-07-07",
+      "score": 56
+    },
+    {
+      "identifier": "cafe-babe-dead-beef",
+      "date": "2024-01-01",
+      "score": 69
+    },
+    {
+      "identifier": "cafe-babe-dead-beef",
+      "date": "2024-02-29",
+      "score": 84
+    },
+    {
+      "identifier": "cafe-babe-dead-beef",
+      "date": "2024-12-31",
+      "score": 32
+    },
+    {
+      "identifier": "cafe-babe-dead-beef",
+      "date": "2025-01-01",
+      "score": 22
+    },
+    {
+      "identifier": "cafe-babe-dead-beef",
+      "date": "2000-02-29",
+      "score": 40
+    },
+    {
+      "identifier": "cafe-babe-dead-beef",
+      "date": "2023-06-15",
+      "score": 56
+    },
+    {
+      "identifier": "cafe-babe-dead-beef",
+      "date": "2100-02-28",
+      "score": 85
+    },
+    {
+      "identifier": "cafe-babe-dead-beef",
+      "date": "1999-07-07",
+      "score": 41
+    },
+    {
+      "identifier": "test",
+      "date": "2024-01-01",
+      "score": 88
+    },
+    {
+      "identifier": "test",
+      "date": "2024-02-29",
+      "score": 0
+    },
+    {
+      "identifier": "test",
+      "date": "2024-12-31",
+      "score": 84
+    },
+    {
+      "identifier": "test",
+      "date": "2025-01-01",
+      "score": 55
+    },
+    {
+      "identifier": "test",
+      "date": "2000-02-29",
+      "score": 96
+    },
+    {
+      "identifier": "test",
+      "date": "2023-06-15",
+      "score": 58
+    },
+    {
+      "identifier": "test",
+      "date": "2100-02-28",
+      "score": 78
+    },
+    {
+      "identifier": "test",
+      "date": "1999-07-07",
+      "score": 81
+    },
+    {
+      "identifier": "1234567890123456",
+      "date": "2024-01-01",
+      "score": 68
+    },
+    {
+      "identifier": "1234567890123456",
+      "date": "2024-02-29",
+      "score": 73
+    },
+    {
+      "identifier": "1234567890123456",
+      "date": "2024-12-31",
+      "score": 45
+    },
+    {
+      "identifier": "1234567890123456",
+      "date": "2025-01-01",
+      "score": 29
+    },
+    {
+      "identifier": "1234567890123456",
+      "date": "2000-02-29",
+      "score": 98
+    },
+    {
+      "identifier": "1234567890123456",
+      "date": "2023-06-15",
+      "score": 85
+    },
+    {
+      "identifier": "1234567890123456",
+      "date": "2100-02-28",
+      "score": 61
+    },
+    {
+      "identifier": "1234567890123456",
+      "date": "1999-07-07",
+      "score": 95
+    },
+    {
+      "identifier": "\u4e2d\u6587\u6807\u8bc6",
+      "date": "2024-01-01",
+      "score": 24
+    },
+    {
+      "identifier": "\u4e2d\u6587\u6807\u8bc6",
+      "date": "2024-02-29",
+      "score": 90
+    },
+    {
+      "identifier": "\u4e2d\u6587\u6807\u8bc6",
+      "date": "2024-12-31",
+      "score": 73
+    },
+    {
+      "identifier": "\u4e2d\u6587\u6807\u8bc6",
+      "date": "2025-01-01",
+      "score": 44
+    },
+    {
+      "identifier": "\u4e2d\u6587\u6807\u8bc6",
+      "date": "2000-02-29",
+      "score": 85
+    },
+    {
+      "identifier": "\u4e2d\u6587\u6807\u8bc6",
+      "date": "2023-06-15",
+      "score": 95
+    },
+    {
+      "identifier": "\u4e2d\u6587\u6807\u8bc6",
+      "date": "2100-02-28",
+      "score": 14
+    },
+    {
+      "identifier": "\u4e2d\u6587\u6807\u8bc6",
+      "date": "1999-07-07",
+      "score": 70
+    }
+  ],
+  "pclIdentify": [
+    {
+      "lastConfig": "{D0FCA2E4-6C10-4D7A-9C5B-123456789ABC}",
+      "seed": "aBc123",
+      "identify": "B9CA-5DA7-7421-FD1E"
+    },
+    {
+      "lastConfig": "{abcdefgh-1234-5678-90ab-cdef12345678}",
+      "seed": "PCL2-Seed-42",
+      "identify": "FC01-78F0-AB39-D7E7"
+    },
+    {
+      "lastConfig": "no-braces-config",
+      "seed": "seed",
+      "identify": "17FC-D052-F8BB-7BDC"
+    },
+    {
+      "lastConfig": "{{double}}",
+      "seed": "",
+      "identify": "555B-D59F-A98F-5E1A"
+    },
+    {
+      "lastConfig": "{lowercase-guid}",
+      "seed": "SeEd",
+      "identify": "099B-98F8-928F-D111"
+    },
+    {
+      "lastConfig": "{}",
+      "seed": "x",
+      "identify": "501B-B6F2-A98F-C686"
+    },
+    {
+      "lastConfig": "",
+      "seed": "abc",
+      "identify": "501B-AAAA-A98F-CC51"
+    },
+    {
+      "lastConfig": "{ABCD}",
+      "seed": "  spaced seed  ",
+      "identify": "9113-6A59-C255-2C1B"
+    }
+  ],
+  "pclceIdentify": [
+    {
+      "hardware": {
+        "UUID": "11111111-2222-3333-4444-555555555555",
+        "MB_Prod": "Standard",
+        "MB_SN": "Default string",
+        "CPU": "BFEBFBFF000906EA"
+      },
+      "identify": "AEF8-C1FF-B097-6040",
+      "raw": null
+    },
+    {
+      "hardware": {
+        "UUID": "",
+        "MB_Prod": "",
+        "MB_SN": "",
+        "CPU": ""
+      },
+      "identify": "5662-B3BA-B3E5-A5F8",
+      "raw": null
+    },
+    {
+      "hardware": {
+        "UUID": "A",
+        "MB_Prod": "B",
+        "MB_SN": "C",
+        "CPU": "D"
+      },
+      "identify": "98FE-5DD7-25AA-F8B3",
+      "raw": null
+    },
+    {
+      "hardware": {
+        "UUID": "UUID-\u4e2d\u6587",
+        "MB_Prod": "\u4e3b\u677f",
+        "MB_SN": "SN-123  ",
+        "CPU": "CPU-0F"
+      },
+      "identify": "D947-1CF2-987A-2C86",
+      "raw": null
+    },
+    {
+      "hardware": {
+        "UUID": "0A1B2C3D-4E5F-6789-0ABC-DEF012345678",
+        "MB_Prod": "To be filled by O.E.M.",
+        "MB_SN": "Default string",
+        "CPU": "00000000"
+      },
+      "identify": "8B68-51FF-C441-60F9",
+      "raw": null
+    }
+  ],
+  "pclceTrace": {
+    "raw": "UUID:11111111-2222-3333-4444-555555555555|MB_Prod:Standard|MB_SN:Default string|CPU:BFEBFBFF000906EA",
+    "rawHash": "7703274f01802cc795e1b7e54563d9051086d67c2cfba50a394a8c670a3719d1e60300da2e8a6d2a0d971240612a9f1ae1706b7d0e77e728e9313a3772d9a3f7",
+    "sample": "0287952fbdeabddbd2ff03ace85fb2e710135db0539d3586fc7df72f50d6b317aef8c1ffb0976040769d9f67dbebe4b5e84c7b0dae7c0a374c727cf9dd256092",
+    "sample64_80": "AEF8C1FFB0976040"
+  }
+}
